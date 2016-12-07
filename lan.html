@@ -1,0 +1,177 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>喵~~</title>
+		<meta charset=utf-8/>
+		<script src="jquery-3.1.0.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+		<div class="all">
+			<div class="m1">大</div>
+			<div class="m2">家</div>
+			<div class="m3">七</div>
+			<div class="m4">夕</div>
+			<div class="m5">快</div>
+			<div class="m6">乐</div>
+		</div>
+		<input type="button" id="bt" value="千万不要点我噢" />
+		<script type="text/javascript">
+			$(document).ready(function() {
+				myHide();                                            //打开页面时启动myHide()函数
+				$("#bt").click(function(){
+					$("div").fadeToggle("1000")
+				})
+			});
+
+			function myHide() {
+				$(".m1").bind('mouseover', m1_mouseover);            //把bind里面的东西绑定
+				$(".m1").bind('mouseout', m1_mouseout);
+				$(".m2").bind('mouseover', m2_mouseover);
+				$(".m2").bind('mouseout', m2_mouseout);
+				$(".m3").bind('mouseover', m3_mouseover);
+				$(".m3").bind('mouseout', m3_mouseout);
+				$(".m4").bind('mouseover', m4_mouseover);
+				$(".m4").bind('mouseout', m4_mouseout);
+				$(".m5").bind('mouseover', m5_mouseover);
+				$(".m5").bind('mouseout', m5_mouseout);
+				$(".m6").bind('mouseover', m6_mouseover);
+				$(".m6").bind('mouseout', m6_mouseout);
+			};
+
+			function m1_mouseover() {                                 //鼠标移入时执行
+				$(".m1").animate({                                    //动画效果的内容，改变了宽高和字体大小
+					width: "200px",
+					height: "60px",
+					fontSize: "30px",
+				}, "slow");
+			}
+
+			function m1_mouseout() {                                  //鼠标移出时执行
+				$(".m1").animate({                                    //动画效果内容，改变了宽高字体大小和圆角，外补白实现位移,换背景色
+					width: "70px",
+					height: "20px",
+					fontSize: "14px",
+					marginLeft:"80px",
+					borderRadius:"300px",
+				}, "slow").css("background-color","red");
+			}
+
+			function m2_mouseover() {
+				$(".m2").animate({
+					width: "200px",
+					height: "60px",
+					fontSize: "30px"
+				}, "slow");
+			}
+
+			function m2_mouseout() {
+				$(".m2").animate({
+					width: "70px",
+					height: "20px",
+					fontSize: "14px",
+					borderRadius:"300px",
+				}, "slow").css("background-color","orange");
+			}
+
+			function m3_mouseover() {
+				$(".m3").animate({
+					width: "200px",
+					height: "60px",
+					fontSize: "30px",
+					
+				}, "slow");
+			}
+
+			function m3_mouseout() {
+				$(".m3").animate({
+					width: "70px",
+					height: "20px",
+					fontSize: "14px",
+					marginLeft:"80px",
+					borderRadius:"300px",
+				}, "slow").css("background-color","yellow");
+			}
+
+			function m4_mouseover() {
+				$(".m4").animate({
+					width: "200px",
+					height: "60px",
+					fontSize: "30px"
+				}, "slow");
+			}
+
+			function m4_mouseout() {
+				$(".m4").animate({
+					width: "70px",
+					height: "20px",
+					fontSize: "14px",
+					borderRadius:"300px",
+				}, "slow").css("background-color","green");
+			}
+
+			function m5_mouseover() {
+				$(".m5").animate({
+					width: "200px",
+					height: "60px",
+					fontSize: "30px",
+				}, "slow");
+			}
+
+			function m5_mouseout() {
+				$(".m5").animate({
+					width: "70px",
+					height: "20px",
+					fontSize: "14px",
+					marginLeft:"80px",
+					borderRadius:"300px",
+				}, "slow").css("background-color","blue");
+			}
+
+			function m6_mouseover() {
+				$(".m6").animate({
+					width: "200px",
+					height: "60px",
+					fontSize: "30px",
+				})
+			}
+
+			function m6_mouseout() {
+				$(".m6").animate({
+					width: "70px",
+					height: "20px",
+					fontSize: "14px",
+					borderRadius:"300px",
+				}, "slow").css("background-color","purple");
+			}
+		</script>
+
+		<style type="text/css">
+			.m1,.m2,.m3,.m4,.m5,.m6 {
+				width: 150px;
+				height: 40px;
+				background-color: lightblue;
+				border: thin solid dodgerblue;
+				font-size: 35px;
+				padding: 20px;
+				border-radius: 5px;
+				color: white;
+				font-weight: bold;
+			}
+			
+			.all {
+				width: 80px;
+				height: 500px;
+				text-align: center;
+			}
+			#bt{
+				width: 190px;
+				height: 40px;
+				background-color: black;
+				color: white;
+				font-size: 20px;
+				border-radius: 8px;
+			}
+		</style>
+
+</html>

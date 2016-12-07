@@ -4,9 +4,119 @@
 		<meta charset="UTF-8">
 		<title></title>
 		<style type="text/css">
+			*{
+				margin: 0px;
+				padding: 0px;
+				font-family: "微软雅黑";
+			}
+			li{
+				list-style-type: none;
+			}
 			a{
+				text-decoration:none;
+			}
+			body{
+				background: #EFEFEF;
+			}
+			.header{
+				width: 100%;
+				height: 80px;
+			}
+			.header_b{
+				width: 1200px;
+				height: 80px;
+				margin: auto;
+			}
+		    .header_img{
+		    	width: 260px;
+		    	height: 60px;
+		    	float: left;
+		    }
+		    .header_img>img{
+		    	width: 260px;
+		    	height: 60px;
+		    	margin: 10px 100px;
+		    }
+		    .header_right{
+		    	width: 550px;
+		    	height: 80px;
+		    	float: right;
+		    	margin-right: 80px;
+		    }
+		    .header_right>ul{
+		    	width: 550px;
+		    	height: 80px;
+		    	font-size: 18px;
+		    	color: #333333;
+		    }
+		    .header_right>ul>li{
+		    	width: 100px;
+		    	height: 80px;
+		    	float: left;
+		    	text-align: center;
+		    	line-height: 80px;
+		    	margin-left: 10px;
+		    } 
+		   .content{
+		   	    width:1200px;
+		       	height:300px;
+		       	margin-top: 10px;
+		       	margin: auto;
+		   } 
+	       .bigbox{
+		       	width:500px;
+		       	height:300px;
+		       	float: left;
+		       	margin-left: 100px;
+		       	position:relative;
+	        }
+		   .box{
+			   	width:500px;
+			   	height:300px;
+			   	margin:auto;
+		   	}
+		   .box>img{
+			   	width:500px;
+			   	height:300px;
+			   	position:absolute;
+		   	}
+		   .box>.imga{
+		   	   display:none;
+		   	}
+		   .box2{
+			   	width:450px;
+			   	height:50px;
+			   	position:absolute;
+			   	bottom:-55px;
+			   	left:25px;
+		   	}
+		   .box2 img{
+			   	width:125px;
+			   	height:50px;
+			   	float:left;
+			   	margin-left:18.7px;
+		   	}
+		   .bigbox .box .imga:target {
+		   	   display:block;
+		   	}
+		   	.content_left{
+		   		width: 480px;
+		   		height: 300px;
+		   		float: left;
+		   		margin-left: 30px;
+		   	}
+		   	.content_left>img{
+		   		width: 480px;
+		   		height: 300px;
+		   	}
+		   	.center{
+		   		width: 800px;
+		   		height: 40px;
+		   		margin-top: 70px;
+		   		margin-left: 180px;
+		   	}
+			.center>a{
 				display:block;
-				text-decoration:none ;
 				width: 140px;
 				height: 30px;
 				text-align: center;
@@ -21,15 +131,48 @@
 		</style>
 	</head>
 	<body>
-		<h2>总结</h2>
-	    <p>听了一下午的github，懵逼一样。就进网页随便点点，错了又回到原首页。
-	    	瞎搞搞的试过了注册，登录，验证。然后在高健同学的指导下用客户端使用上传</p>
-	    <p>Hbuilder就一直在使用，不能说很熟悉吧，也还行。</p>
-	    <a href="2016.12.07zongjie.html">快来点我吧！！！</a>
+		<div class="header">
+			<div class="header_b">
+				<div class="header_img">
+					<img src="img/757565969472851166.png"/>
+				</div>
+				<div class="header_right">
+					<ul>
+						<li style="background: #F15694;color: #FFFFFF;"><a href="#">首页</a></li>
+						<li><a href="#">关于我</a></li>
+						<li><a href="#">慢生活</a></li>
+						<li><a href="#">碎言碎语</a></li>
+						<li><a href="#">学无止境</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	<div class="content">
+		<div class="boxi">
+				<div class="bigbox">
+				    <div class="box">
+				        <img src="img/s-banner3.jpg">
+				    	<img src="img/s-banner3.jpg" id="imga" class="imga">
+				    	<img src="img/s-banner1.jpg" id="imga2" class="imga">
+				    	<img src="img/s-banner5.jpg" id="imga3" class="imga">   	
+				    </div> 
+				    <div class="box2">
+				    	<a href="#imga"><img src="img/s-banner3.jpg"></a>
+					    <a href="#imga2"><img src="img/s-banner1.jpg"></a>
+					    <a href="#imga3"><img src="img/s-banner5.jpg"></a>
+				    </div> 
+				</div>
+		</div>
+		<div class="content_left">
+			<img src="img/下载.jpg"/>
+		</div>
+	</div>
+	<div class="center">
+        <a href="2016.12.07zongjie.html">快来点我吧！！！</a>
 	    <a href="xin.html">心动噢！！！</a>
 	    <a href="xiaomao.html">可爱！！！</a>
 	    <a href="xintiao.html">心跳！！！</a>
 	    <a href="lan.html">七夕！！！</a>
-   
+	</div>
 	</body>
 </html>

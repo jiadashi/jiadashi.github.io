@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>javascript事件</title>
+		<style type="text/css">
+			p{
+				font-family: "微软雅黑";
+				font-size: 30px;
+				font-weight: bold;
+			}
+			h2{
+				background: red;
+				color: #FFFFFF;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Dom event 事件</h1>
+		<h3>onclick 事件</h3>
+		</pre>
+		    举个栗子：   onclick="alert('今天天气不错')"   //值得注意的是这里当外面是双引号的时候，那里面就是单引号
+		</pre>
+		<h3>HTML DOM on事件</h3>
+		<pre>
+			id = "pp"
+			var pp = document.getElementById("pp");
+			pp.onclick = function(){
+				alect("明天约妹子去")
+			}
+		</pre>
+		<h2>以上2个事件支持所有浏览器</h2>
+		<h3>HTML DOM W3C标准事件</h3>
+		<h4>note:浏览器支持性</h4>
+		<pre>
+			pp.addEVentlistener(click,clickHander);
+			    function clickHander(e){
+			    	console.log(e.target)
+			    	alect("明天周二了")         //次事件IE6以下的浏览器都不支持使用，如果你还用，你已近是远古时代的动物了。所以不推荐     
+			    }
+		</pre>
+		<h3>事件流</h3>
+		<pre>
+			主要是从捕获到冒泡的过程&nbsp;&nbsp;&nbsp;过程如下
+			捕获： window&nbsp;document&nbsp;body&nbsp;div&nbsp;text
+			冒泡：text&nbsp;div&nbsp;body&nbsp;document&nbsp;window
+			捕获就是从上到下的捕捉目标，而冒泡就是目标从下而上的过程，要经过每一个元素
+		</pre>
+		<h3>事件代理 或者是事件委托</h3>
+		<pre>
+			首先给父元素一个监听事件
+			<img src="img/27.png"/>
+		</pre>
+		<h3>监听 动态的添加图片</h3>
+		<pre>
+			<span>显示X轴位置</span>
+			<span>显示Y轴位置</span>
+			<img src="img/X.png"/>
+		</pre>
+		<h3>disabled  事件</h3>
+		<pre>
+			<img src="img/ZI.png"/>
+		</pre>
+		<h3>键盘事件</h3>
+		<pre>
+			onkeydown事件会在用户按下一个键盘按键时发生。
+			键盘按下的时候，控制文本框的输入值为字母 而不是数字
+			<img src="img/6W.png"/>
+		</pre>
+		<h3>keyCode 属性返回onkeypress事件触发的键的值的字符代码，或者 onkeydown 或 onkeyup 事件的键的代码。</h3>
+		<pre>
+			<img src="img/9212.png"/>
+		</pre>
+	</body>
+</html>

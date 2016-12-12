@@ -2,110 +2,118 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>JavaScript内置对象</title>
+		<title></title>
+		<style type="text/css">
+			pre{background: #aaa;width: 500px;}
+		</style>
+		<script type="text/javascript">
+		</script>
 	</head>
 	<body>
-		<h1>JavaScript内置对象</h1>
-		<h3>1.String对象</h3>
-		<h4>字符串声明</h4>
-		<p>推荐使用：var str="i am a string";</p>
-		<h4>字符串方法</h4>
-		<p>str.length:字符串长度</p>
-		<p>str.indexof():可返回某个指定的字符串值在字符串中首次出现的位置。</p>
+		<h1>JavaScript复习总结</h1>
+		<h3>JavaScript编程规范</h3>
+		<h4>1.通用命名规范</h4>
+		<p>所有变量必须是有意义的英文，严禁使用拼音</p>
+		<p>变量命名采用小驼峰（第一个单字母小写，其余单词首字母大写）</p>
+		<p>常量必须所有单词大写，并且每个单词间加下划线</p>
+		<p>所有全局变量必须初始化</p>
+		<h4>2.变量命名规范</h4>
+		<p>类型前缀+有意义的单词</p>
+		<p>字符串：sXXX，如：sName</p>
+		<p>数字：nXXX，如：nPage</p>
+		<p>逻辑：bXXX，如：bChecked</p>
+		<p>正则：rXXX，如：rDomain</p>
+		<p>函数：fXXX，如：fGetlist</p>
+		<p>DOM节点:dXXX,如：dDiv</p>
+		<p>其他类型：oXXX，如：oButton</p>
+		<p>循环变量:i,j,k以此类推</p>
+		<h4>3、函数命名规范</h4>
+		<p>普通函数:动词+名词,如fGetlist、fGetVersion;</p>
+		<p>涉及逻辑返回值的函数:is、has、can,如:fisAdmin、fhasChild;</p>
+		<p>内部函数:_f+上面规则,如:fLoopCount;</p>
+        
+        <h3>JavaScript函数</h3>
+        <h4>1.函数的声明</h4>
+        <p>直接声明</p>
+        <pre>
+    function fGetlist(){
+        		
+    }
+        </pre>
+        <p>表达式声明</p>
+        <pre>
+    var fGetlist=function(){
+        		
+    }
+        </pre>
+        <p>匿名函数</p>
+        <pre>
+    function(){
+        		
+    }
+        </pre>
+        <h4>2.函数的调用</h4>
+        <p>声明一个函数，并调用</p>
+        <pre>
+    function func() {
+    alert("Hello World");
+    }
+    func();
+        </pre>
+        <p>使用函数的Lambda表达式定义函数，然后调用</p>
+        <pre>
+    var func = function() {
+    alert("你好，程序员");
+    };
+    func();
+        </pre>
+        <p>匿名调用</p>
+        <pre>
+    (function(){
+    	alert(1)
+    })();
+        </pre>
+        
+        <h3>for循环</h3>
+		<h4>1.for循环的格式</h4>
+		<pre>for(申明变量;表达式或值;表达式或值(后运行)){
+			满足条件执行;
+		}</pre>
+		<h4>2.实例</h4>
+		<h5>css部分</h5>
 		<pre>
-			var str="abc de fg";//空格也算在内
-			var str1="我是字符串我";//按照数量计算，长度为6
-			console.log(str1.length);
-			console.log(str1.indexOf("我"));//返回字符串值在字符串中首次出现的位置
-			console.log(str1.indexOf("我",str1.indexOf("我")+1));//第二次出现的位置
+			#box{
+			     width: 260px;
+			     height: 260px;
+			     border:1px solid black;
+			    }
+			#box div{
+			    width: 50px;
+			    height: 50px;
+			    border:1px solid black;
+			    float: left;
+			    text-align: center;
+			    line-height: 50px;
+			    }	    
 		</pre>
-		<p>substr():可在字符串中抽取从 start 下标开始的指定数目的字符。</p>
-		<p>substring():用于提取字符串中介于两个指定下标之间的字符。</p>
-		<p>split():用于把一个字符串分割成字符串数组。</p>
-		<p>slice():可提取字符串的某个部分，并以新的字符串返回被提取的部分。</p>
-		<pre>
-			var str2="hello world hello world";
-			document.write(str2.match("world"));//匹配字符串
-			console.log(str2.substr(4,3)+"截取之后的原字符串"+str2)//不改变原字符串，只截取
-			console.log(str2.substring(1,3)+"截取之后的原字符串"+str2);//不改变原字符串
-			console.log(str2.substring(3,-3)+"截取之后的原字符串"+str2);//往前截取
-			console.log(str2.substr(3,-2)+"截取之后的原字符串"+str2);//长度为负，没有截取到
-			console.log(str2.slice(3)+"截取之后的原字符串"+str2);//不改变原字符串
-			console.log(str2.slice(3,6)+"截取之后的原字符串"+str2);
-			console.log(str2.split("o",2)+"截取之后的原字符串"+str2);//返回数组,以o位分界线
+		<h5>js部分</h5>
+		<pre>			
+	     	var box=document.getElementById('box');
+	     	var str="";
+	     	    for (var j = 0;j < 5;j++) {
+	     		  for (i = 0;i < 5;i++) {
+	     		  	var m=(j*5+i);
+	     		  	if(m > 2){
+	     		  str+="&ltdiv>"+(m-2)+"&lt/div>";
+	     		  	}else{
+	     		  	str+="&ltdiv>"+"&lt/div>";	
+	     		  	}
+	     	    }
+	     	    box.innerHTML=str;
+	     	   }   
 		</pre>
-		<h4>示例</h4>
-		<pre>
-			var str = "[ti:The Fox][00:00.00] The Fox - Ylvis";
-			var str2 = str.split("]");
-			document.write("歌名:"+(str2[0].split(":"))[1]);
-			document.write("时间:"+(str2[1].split("["))[1]);
-			document.write("歌词:"+str2[2].split("-")[1]);
-		</pre>
-		<p>结果：</p>
-		<pre>
-			歌名:The Fox
-                        时间:00:00.00
-                        歌词: Ylvis
-		</pre>
-		
-		<h3>2.Array对象</h3>
-		<h4>Array声明</h4>
-		<pre>
-			var arr = [1,2,3,4];
-			var arr1 = [];
-			var arr2 = new Array();
-			var arr3 = new Array(3);//长度为3的数组
-			var arr4 = new Array(3,1);//值为3,1的数组
-		</pre>
-		<h4>Array方法</h4>
-		<p>pop() 方法用于删除并返回数组的最后一个元素。</p>
-		<p>push() 方法可向数组的末尾添加一个或多个元素，并返回新的长度。</p>
-		<p>shift() 方法用于把数组的第一个元素从其中删除，并返回第一个元素的值。</p>
-		<p>slice() 方法可从已有的数组中返回选定的元素。</p>
-		<p>splice() 方法向/从数组中添加/删除项目，然后返回被删除的项目。</p>
-		<p>forEach方法</p>
-		<pre>
-			var arr = [1,2,3,4,5,6];
-			arr.forEach(function(element,index,array){
-				console.log("index:"+index);
-				console.log("element:"+element);
-			})
-		</pre>
-		<p>结果：</p>
-		<pre>
-              "index:0"	 
-              "element:1"	 
-              "index:1"	 
-              "element:2"	 
-              "index:2"	 
-              "element:3"	 
-              "index:3"	 
-              "element:4"	 
-              "index:4"	 
-              "element:5"	 
-              "index:5"	 
-              "element:6"	 
-		</pre>
-		
-		<h3>3.object对象</h3>
-		<h4>object声明</h4>
-		<p>通用格式:var obj = {key:value};</p>
-		<p>var obj1 = {name:"张三",age:400,sex:"male"};</p>
-		<h4>object属性</h4>
-		<pre>
-			console.log(obj1.name);//获取name属性
-			console.log(obj1["age"]);//获取age属性
-		</pre>
-		<p>for in 遍历对象属性</p>
-		<pre>
-			for (var i in obj1) {
-				console.log(obj1[i])
-			}
-		</pre>
-		<h4>示例</h4>
-		<img src="http://image18.poco.cn/mypoco/myphoto/20161208/19/1841859862016120819191709_640.jpg?871x581_120"/>
-		<p>结果展示：</p>
-		<img src="http://image18.poco.cn/mypoco/myphoto/20161208/19/18418598620161208191853074_640.jpg?354x611_120"/>
+		<p>外面的for运行一次,里面的for运行五次</p>
+		<h5>图片如下</h5>
+        <img src="http://image18.poco.cn/mypoco/myphoto/20161207/19/18418598620161207193836034_640.jpg?289x290_120"/>
 	</body>
 </html>

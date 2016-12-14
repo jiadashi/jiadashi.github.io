@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<h2>canvas 画布</h2>
+		<pre>
+			canvas画布默认值：width:300px;    height:150px;
+		</pre>
+		<h4>rect();</h4> 
+		<pre>
+			方法为当前路径添加一条矩形子路径      
+			//挂号内：4个值，分别为x, y矩形的左上角的坐标。  width, height	矩形的大小。
+		</pre>
+		<h4>fillRect() 方法填充一个矩形;</h4>
+		<h4>closepath() 方法创建从当前点到开始点的路径</h4>
+		<h4>stroke() 方法会实际地绘制出定义的路径</h4>
+		<h4>strokeStyle 属性设置或返回用于<span style="color: coral;">笔触</span>的颜色，通过CSS颜色来设置</h4>
+		<h4>fillStyle() 属性设置或返回用于<span style="color: red;">填充</span>绘画的颜色，通过CSS颜色来设置</h4>
+		<h4>canvas arc() 方法创建弧/曲线（用于创建圆或部分圆)</h4>
+		<pre>
+			//挂号内6个值：x	圆的中心的 x 坐标。         y圆的中心的 y 坐标。
+			r圆的半径。sAngle	      起始角，以弧度计。（弧的圆形的三点钟位置是 0 度）。
+			eAngle结束角，以弧度计。counterclockwise	        可选。规定应该逆时针还是顺时针绘图。False = 顺时针，true = 逆时针。
+		</pre>
+		<h4>linewidth() 属性设置或返回当前线条的宽度，以像素计</h4>
+		<h4>beginPath() 方法在一个画布中开始子路径的一个新的集合。</h4>
+		<pre>
+			beginPath() 丢弃任何当前定义的路径并且开始一条新的路径。它把当前的点设置为 (0,0)。
+		</pre>
+		<h4>moveTo() 方法可把窗口的左上角移动到一个指定的坐标。</h4>
+		<h4>lineTo() 方法添加一个新点，然后创建从该点到画布中最后指定点的线条</h4>
+		<h4>bezierCurveTo() 方法通过使用表示三次贝塞尔曲线的指定控制点，向当前路径添加一个点。</h4>
+		<h4>quadraticCurveTo() 方法通过使用表示二次贝塞尔曲线的指定控制点，向当前路径添加一个点</h4>
+	</body>
+</html>

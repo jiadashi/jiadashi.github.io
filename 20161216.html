@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<pre>1：  
+			a href = "javascript:close();">点我   /a这里代码片段的作用是关闭浏览器窗口
+			错误的原因是理解成console(),其实归根结底还是英语单词不熟悉。
+		</pre>
+		<pre>2：
+			var box = document.getElementById("box");
+		    	box.addEventListener("click",mover,false);
+		    	var t = 10;
+		    	
+		    	function mover(){
+		    		box.innerHTML = t + "秒后重新获取";
+		    		box.disabled = true;                             //当我鼠标点下的时候，按钮就是禁用，不能在次点击
+		    		siv1 = window.setInterval(moverr,1000);
+		    	}
+		    	
+		    	function moverr(){
+		    		box.innerHTML = t +"秒后重新获得";
+		    		if (t<=0) {
+		    			if(siv1){
+		    				clearInterval(siv1);
+		    			}
+		    			t = 10;
+		    			box.innerHTML = "获取手机验证码";
+		    			box.disabled = false;
+		    		}
+		    		t--;
+		    	}
+		</pre>
+		<pre>3:
+			javascript函数默认返回的值是  undefind
+		</pre>
+		<pre>4:
+				function test(){
+					alert(this);
+				}
+				test()                //这里输出的是object window
+<br />
+<br />
+			    test3 = function(){
+					alert(this);
+				}
+				test3()              //这里同样输出object window
+		</pre>
+	</body>
+</html>

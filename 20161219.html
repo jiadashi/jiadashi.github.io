@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			h5{
+				background: #0078E7;
+				color: #FFFFFF;
+				font-size: 20px;
+			}
+		</style>
+	</head>
+	<body>
+		<h2>闭包this 指向</h2>
+		<pre>
+			<h5>函数直接在全局中调用时，this指向window</h5>
+			var num = 10;
+			function foo(){
+				this.num = 1;
+			}
+			foo();
+			console.log(num);
+		</pre>
+		<pre>
+			<h5>this指向对象object</h5>
+			var num = 3;
+			var obj = {};
+			obj.num = 5;
+			obj.f = function(){
+				console.log(this.num)    //这里直局部
+				console.log(this)    //这里object
+			}
+			obj.f();
+			console.log("全部num"+num);   //这里指向全局
+		</pre>
+		<pre>
+			<h5>函数返回指向</h5>
+			var num = 1;
+			function foo(){
+				return function(){
+					return this.num;
+				}
+			}
+			var f = foo();
+			console.log(f())     //这里f指向函数的全局
+		</pre>
+		<pre>
+			<h5>APPly()方法       改变函数内部this指向的对象</h5>
+			var o = 400;
+			var num = 10;
+			var obj = {};
+			obj.num = 1;
+			obj.f =function(){
+				console.log(this.num);     //这里的this指向局部。解释谁调它它就指向谁
+			}
+			obj.f();
+			如果第一个参数为空,函数内部this指向window*/
+			obj.f.apply();                 //当使用apply的时候，就改变this指向
+			obj.f.apply(o);                //这里根据apply的参数，函数内部this跟着指向o
+		</pre>
+		<pre>
+			<h5>标签属性this指向当前标签对象</h5>
+			p onclick="fun(this)">来点我呀 /p
+			function fun(obj){
+				console.log(obj)           //这里指向上面的p标签
+			}
+		</pre>
+		<pre>
+			<h5>this指向hello Window？</h5>
+			var say = "hello Window";
+			var obj = {};
+			obj.say = "hello object!";
+			obj.foo = function(){
+				return function (){
+					return this.say;     //这里this指向 hello Window
+				}
+			}
+			var f = obj.foo();
+			console.log(f());
+			console.log(obj.foo()());  
+		</pre>
+		<pre>
+			<h5>this指向hello object？</h5>
+			var say = "hello Window";
+			var obj = {};
+			obj.say = "hello object!";
+			obj.foo = function(){
+				var that = this;
+				return function (){
+					return that.say;     //这里this指向 hello object
+				}
+			}
+			console.log(obj.foo()());  
+		</pre>
+		<pre>
+			<h5>视频播放器js部分</h5>
+			var video = document.getElementById("video");    //视频id
+			var vbtn = document.getElementById("vbtn");      //按钮开关
+			/*var ctxt = document.getElementById("ctxt");    输入框显示视频总长度
+			var dtxt = document.getElementById("dtxt");*/    //输入框显示视频当前播放进度
+			var boxBtn = document.getElementById("box_btn");   //视频总长度
+			var boxCem = document.getElementById("box_cem");   //视频当前播放进度
+			var boxRad = document.getElementById("box_rad");   //圆形球
+			var boxSh = document.getElementById("box_sh");     //缓存进度条
+			
+			
+			
+			vbtn.addEventListener("click",playvbtn);           //侦听事件，处理函数
+				
+				
+				var st;
+				function playvbtn(){
+					if (vbtn.innerText =="播放") {
+						video.play();            //播放
+						vbtn.innerText = "暂停";   
+					} else{  
+						video.pause();          //暂停
+						vbtn.innerText ="播放";
+					}
+					
+					/*st = setInterval(function(){
+						ctxt.value = video.currentTime;   //当前进度
+						dtxt.value = video.duration;      //总进度
+					},300);*/
+					
+					st = setInterval(function(){         //setInterval会不停地调用函数
+						var currentTime = video.currentTime;   //currentTime视频播放的当前位置（以秒计）
+						var totalTime = video.duration;        //duration当前视频的总长度(以秒计)
+						boxCem.style.width = currentTime /totalTime *1000 +"px";
+						boxRad.style.left = currentTime /totalTime *1000 +"px";
+						
+						
+						var tRanges = video.buffered;       //bufferend缓存范围（以秒记）
+						var buttered = tRanges.end(tRanges.length - 1);
+						var buttpro = buttered / video.duration * 1000;
+						boxSh.style.width = buttpro + "px";
+					},300);
+				}
+		</pre>
+	</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box{
+				font-size: 20px;
+				color:#FFD700;
+			}
+		</style>
+	</head>
+	<body>
+		<h2>跑马灯</h2>
+		<pre>
+			<span id="box">跑马灯原理</span><br />
+			<span>滚动。当第一组字幕过去后，排在第二组字幕滚动到第一组位置，
+			而此时的第一组字幕着是排到此时的第二组位置。这样轮流循环的滚动</span>
+		</pre>
+		<h2>跑马灯js部分代码</h2>
+		<pre>
+			var a = 0;
+			setInterval(function() {
+				if(box.scrollLeft == box.scrollWidth / 2) { //scrollLeft返回或设置匹配元素的滚动条的水平位置
+					a = 0;                          //scrollWidth获取对象的滚动宽度
+				}
+				a += 5;
+				box.scrollLeft = a;
+			}, 100)
+		</pre>
+	</body>
+</html>

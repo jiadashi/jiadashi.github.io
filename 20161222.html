@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<h2>ajax入门</h2>
+		<h6>ajax最大的优点在不重新加载页面的情况下，可以与服务器交换数据并更新部分页面。</h6>
+		<h6>ajax不需要插件，但需要javascript在浏览器执行。</h6>
+		<h6>ajax = 异步javascr 或 XML</h6>
+		<h6>XMLHttpRequest 是ajax基础</h6>
+		<h6>三次协议</h6>
+		       三次握手（three times handshake；three-way handshake）所谓的“三次握手”即对每次发送的
+		数据量是怎样跟踪进行协商使数据段的发送和接收同步，根据所接收到的数据量而确定的数据确认数
+		及数据发送、接收完毕后何时撤消联系，并建立虚连接。
+                       为了提供可靠的传送，TCP在发送新的数据之前，以特定的顺序将数据包的序号，并需要这些包传送
+                给目标机之后的确认消息。TCP总是用来发送大批量的数据。当应用程序在收到数据后要做出确认时也要
+                用到TCP。
+        <h6>TCP/IP 使用 32 个比特或者 4 个 0 到 255 之间的数字来为计算机编址。</h6>
+        <pre>
+        	XMLHttpRequest 对象用于在后台与服务器交换数据。这意味着可以在不重新加载整个网页的情况下，
+        	对网页的某部分进行更新
+        </pre>
+        <pre>
+        	如需将请求发送到服务器，我们使用 XMLHttpRequest 对象的 open() 和 send() 方法：
+        	xhr.open("GET","url");    //url指网址；GET指发送请求，传输数据
+			xhr.send();               //发送服务器
+			每当 readyState 改变时，就会触发 onreadystatechange 事件。
+            readyState 属性存有 XMLHttpRequest 的状态信息。
+            readyState	存有 XMLHttpRequest 的状态。从 0 到 4 发生变化。
+					0: 请求未初始化
+					1: 服务器连接已建立
+					2: 请求已接收
+					3: 请求处理中
+					4: 请求已完成，且响应已就绪          只要记住第4就可以了
+			status	存在的变化    200: "OK"
+        </pre>
+        <h4>例子</h4>
+        <pre>
+        	var xhr = new XMLHttpRequest();
+			xhr.open("GET","img/zwlq.jpg");    //url指网址；GET指发送请求，传输数据
+			xhr.send();               //发送服务器
+			xhr.onreadystatechange = function(msg){     //每当 readyState 改变时，就会触发 onreadystatechange 事件。
+				if(xhr.readyState == 4){
+					if(xhr.status == 200){
+						console.log(msg.response);
+					}
+				}
+			}
+			<pre>
+				var obj = JSON.parse(xhr.responseText);     //引入外部json文件，格式化json数据，调用给源生js用
+			</pre>
+        </pre>
+	</body>
+</html>

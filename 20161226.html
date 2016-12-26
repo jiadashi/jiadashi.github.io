@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			p{
+				background: cornflowerblue;
+			}
+		</style>
+	</head>
+	<body>
+		<h2>jQuery选择器</h2>
+		<h2>jQuery版本：</h2>
+		<span>兼容性</span>
+		<span>不兼容IE底版本</span>
+		<span>增加了新功能（高科技公司首选：高科技--不适用IE浏览器（EDGE）</span>
+		<span>库：简单理解为：工具箱</span>
+		<span>功能+算法+组件+其他</span>
+		<span>直接拿来用的封装好的代码</span>
+		<h4>原生javascript操作</h4>
+		<span>兼容性</span>
+		<span>动画效果</span>
+		<span>其他</span>
+		<h4>jQuery操作</h4>
+		<span>编写代码量  工作效率</span>
+		<span>jQuery版本区别：选择时依项目需求而定</span>
+		<pre>
+			<p>&lt;!--id选择器--&gt;</p>
+			&lt;input type="text" name="" id="box" value="" /&gt;
+		&lt;input type="button" name="" id="cen" value="输入的值为" /&gt;
+		&lt;script type="text/javascript"&gt;
+			$(document).ready(function(){
+				$("#cen").click(function(){
+					var obj = $("#box").val();
+					alert(obj);
+				});
+			});
+		&lt;/script&gt;
+		
+		
+		
+		&lt;div id="box"&gt;这里是个小女孩&lt;/div&gt;
+		&lt;div id="cne"&gt;这里是个人妖&lt;/div&gt;
+		&lt;input type="button" name="" id="an" value="若干年后么" /&gt;
+		&lt;script type="text/javascript"&gt;
+			$(document).ready(function(){
+				$("#an").click(function(){
+					var obj = $("#box").innerHTML = "这是一个美女";
+					var ob = $("#cne").innerHTML = "这还是人妖";
+					alert(obj);
+				});
+			});
+		&lt;/script&gt;
+		
+		<p>&lt;!--class选择器--&gt;</p>
+		&lt;div class="box"&gt;我是长这样得&lt;/div&gt;
+		&lt;div&gt;我是长这样得&lt;/div&gt;
+		&lt;script type="text/javascript"&gt;
+			$(document).ready(function(){
+				var bosa = $(".box");
+				bosa.css("background","coral");
+				bosa.css("color","black");
+			})
+		&lt;/script&gt;
+		
+		
+		&lt;p class="box"&gt;这是元素p&lt;/p&gt;
+		&lt;div class="box"&gt;这是元素div&lt;/div&gt;
+		&lt;span class="box" id="box"&gt;这是元素span&lt;/span&gt;
+		&lt;input type="button" id="an" value="为div和span的元素跟换背景" /&gt;
+		&lt;script type="text/javascript"&gt;
+			$(document).ready(function(){
+				$("#an").click(function(){
+					$("div","#box").addClass("change");
+				});
+			});
+		&lt;/script&gt;
+		
+		<p>&lt;!--兄弟\同胞元素选择器--&gt;</p>
+		&lt;div style="float: right; text-align: right;"&gt;
+			&lt;a href="#"&gt;首页&lt;/a&gt;
+			&lt;a href="#" class="box"&gt;登录&lt;/a&gt;
+			&lt;a href="#" class="box"&gt;注册&lt;/a&gt;
+			&lt;a href="#" class="box"&gt;找回密码&lt;/a&gt;
+		&lt;/div&gt;
+		&lt;script type="text/javascript"&gt;
+			$(document).ready(function(){
+				$("a.box").mouseover(function(){
+					window.status = "www.baidu.com";
+					return true;
+				}).mouseout(function(){
+					window.status = "完成";
+					return true;
+				});
+			});
+		&lt;/script&gt;
+		
+		<p>&lt;!--层级选择器--&gt;</p>
+		&lt;style type="text/css"&gt;
+			input{
+				margin: 5px;
+			}
+			.input{
+				font-size: 20px;
+				background-color: #cef;
+				color: #333333;
+				border: 1px solid #000000;
+			}
+		&lt;/style&gt;
+		&lt;form id="box" method="post" action=""&gt;
+			姓名：&lt;input type="text" id="name" /&gt;
+			籍贯：&lt;input type="text" id="ji" /&gt;
+			生日：&lt;input type="text" id="sr" /&gt;  
+			E-mail：&lt;input type="text" id="em" /&gt;
+			&lt;span &gt;
+				&lt;input type="button"  id="hf" value="换肤" /&gt;
+			&lt;/span&gt;
+			&lt;input type="button" id="mo" value="默认恢复" /&gt;
+		&lt;/form&gt;
+		&lt;script type="text/javascript"&gt;
+			$(document).ready(function(){
+				$("#hf").click(function(){
+					$("form &gt; input").addClass("input");
+				});
+				$("#mo").click(function(){
+					$("form input").removeClass("input");
+			});
+		});
+		&lt;/script&gt;
+		
+		<p>&lt;!--标签选择器    动画--&gt;</p>
+		&lt;input type="button" id="btn" value="来点我呀" /&gt;
+		&lt;div style="width: 300px; height: 300px;margin:5px;background: #CCEEFF;display: none;"&gt;&lt;/div&gt;
+		&lt;div style="width: 300px; height: 300px;margin:5px;background: #CCEEFF;display: none;"&gt;&lt;/div&gt;
+		&lt;div style="width: 300px; height: 300px;margin:5px;background: #CCEEFF;display: none;"&gt;&lt;/div&gt;
+		&lt;script type="text/javascript"&gt;
+			$(document).ready(function(){
+				$("#btn").click(function(){
+					$("div").slideToggle(3000).html("警报，警报，前方高能！");
+				});
+			});
+		&lt;/script&gt;
+		
+		<p>&lt;!--过滤选择器选择第一个     first--&gt;</p>
+		&lt;input type="text"  id="box" value="" /&gt;
+		&lt;input type="text"  id="btn" value="" /&gt;
+		&lt;input type="text"  id="bmt" value="" /&gt;
+		&lt;input type="button" id="an" value="来点我呀！" /&gt;
+		&lt;script type="text/javascript"&gt;
+			$(function(){                                         
+				$("#an").click(function(){
+					$("input:first").css("border","2px solid blue");
+				});
+			});
+		&lt;/script&gt;
+		<span style="background: #FF0000;">:last  过滤并选择出最后一个匹配元素</span>
+		<span style="background: #FF0000;">:odd  索引为奇数（从0开始计数）的所有元素</span>
+		<span style="background: #FF0000;">:even  索引为偶数（从0开始计数）的所有元素</span>
+		
+		
+		<p>&lt;!--过滤选择器选择第几个     eq()--&gt;</p>
+		&lt;input type="text"  id="box" value="" /&gt;
+		&lt;input type="text"  id="btn" value="" /&gt;
+		&lt;input type="text"  id="bmt" value="" /&gt;
+		&lt;input type="button" id="an" value="来点我呀！" /&gt;
+		&lt;script type="text/javascript"&gt;
+			$(function(){                                         
+				$("#an").click(function(){
+					$("input:eq(0)").css("border","2px solid blue");
+				});      
+			});  
+		&lt;/script&gt;
+		<span style="background: #FF0000;">:gt()  从匹配的集合中选择索引大于给定值的所有元素</span>
+		<span style="background: #FF0000;">:lt()  从匹配的集合中选择索引小于给定值的所有元素</span>
+		<span style="background: #FF0000;">:not   从匹配的集合中去除与给定选择器匹配的元素</span>
+		</pre>
+	</body>
+</html>

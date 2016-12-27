@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			span{
+				color: gold;
+			}
+		</style>
+	</head>
+	<body>
+		<h2>jQuery DOM操作</h2>
+		<img src="img/C}N.png"/>
+		<img src="img/V~M.png"/>
+		<pre>      
+		&ltstyle type="text/css"&gt
+			.cen{
+				font-size: 30px;
+				color: brown;
+			}
+		&lt/style&gt
+		</pre>
+		<pre>     
+		&ltscript src="js/jquery-3.1.0.min.js" type="text/javascript"&gt&lt/script&gt
+        </pre>
+        <pre>    
+		&ltdiv id="box"&gt
+			&ltspan style="background: #00BFFF;"&gt今天周二&lt/span&gt
+		&lt/div&gt
+		&ltbutton id="btn"&gt点我!&lt/button&gt   
+		&ltscript type="text/javascript"&gt
+			$(function(){
+				$("#btn").click(function(){
+					<span style="color: #FF0000;">属性</span>
+					$("#box&gtspan").attr();        //<span>设置或返回被选元素的属性</span>
+					$("#box&gtspan").removeAttr("style");     //<span>从被选元素中移除属性</span> 
+					<span style="color: #FF0000;">元素，节点</span>
+					$("#box&gtspan").html("&ltspan&gt离元旦还有3天&lt/span&gt");  //<span>返回或设置被选元素的内容</span>   注释：html和text二个看似相同，却是不同的。html返回的是标签内容，而text返回的是标签及元素
+					$("#box&gtspan").text("&ltspan&gt离元旦还有3天&lt/span&gt");  //<span>方法设置或返回被选元素的文本内容</span>
+					<span style="color: #FF0000;">文档处理</span>
+					$("#box&gtspan").append("&ltul&gt&ltli&gt元旦快乐&lt/li&gt&lt/ul&gt"); //<span>被选元素的结尾（仍然在内部）插入指定内容</span>
+					$("&ltul&gt&ltli&gt元旦快乐&lt/li&gt&lt/ul&gt").appendTo("#box&gtspan");   //<span>被选元素的结尾（仍然在内部）插入指定内容</span>
+					$("#box&gtspan").prepend("&ltdiv&gt警报，警报&lt/div&gt");      //<span>被选元素的开头（仍位于内部）插入指定内容</span>
+					$("&ltdiv&gt警报，警报&lt/div&gt").prependTo("#box&gtspan");    //<span>被选元素的开头（仍位于内部）插入指定内容</span>
+					$("#box&gtspan").after("&ltp&gt这是段落标签&lt/p&gt");         //<span>被选元素后插入指定的内容</span>
+					$("&ltp&gt这是段落标签&lt/p&gt").insertAfter("#box&gtspan");     //<span>被选元素之后插入 HTML 标记或已有的元素</span>
+					<span style="color: #FF0000;">CSS类操作</span>
+					$("#box&gtspan").addClass("cen");         //<span>方法向被选元素添加一个或多个类</span>
+					$("#box&gtspan").removeClass("cen");      //<span>被选元素移除一个或多个类</span>
+				});
+			});
+		&lt/script&gt
+		</pre>
+		
+		<pre>   <span style="color: #FF0000;">动画效果</span>
+		&ltbutton style="background: #00FFFF;color: #000000;"&gt你看我是什么&lt/button&gt
+		&ltdiv id="box"&gt
+			&ltul&gt
+				&ltli&gtipad1&lt/li&gt
+				&ltli&gtipad2&lt/li&gt
+				&ltli&gtipad3&lt/li&gt
+				&ltli&gtipad4&lt/li&gt
+			&lt/ul&gt
+		&lt/div&gt
+		&ltscript type="text/javascript"&gt
+			$(function(){  
+				$("button").click(function(){
+					<span style="color: #FF0000;">显示隐藏</span>
+					$("#box&gtul").hide();      ////<span>被选的元素已被显示，则隐藏该元素</span>
+					$("#box&gtul").show();      ////<span>被选元素已被隐藏，则显示这些元素</span>
+					<span style="color: #FF0000;">滑动</span>
+					$("#box&gtul").slideDown(); //<span>通过使用滑动效果，显示隐藏的被选元素</span>
+					$("#box&gtul").slideToggle();    //<span>通过使用滑动效果（高度变化）来切换元素的可见状态</span>			
+					$("#box&gtul").slideUp(3000);   //<span>通过使用滑动效果，隐藏被选元素，如果元素已显示出来的话</span>
+					<span style="color: #FF0000;">淡入淡出</span>
+					$("#box&gtul").fadeOut();       //<span>使用淡出效果来隐藏被选元素，假如该元素是隐藏的</span>
+					$("#box&gtul").fadeIn();        //<span>使用淡入效果来显示被选元素，假如该元素是隐藏的</span>
+					$("#box&gtul").fadeToggle();   //<span>淡入和淡出的切换</span>
+					$("#box&gtul").fadeTo();        //<span>将被选元素的不透明度逐渐地改变为指定的值</span>
+				});
+			});
+		&lt/script&gt
+		</pre>
+		
+	<pre>   <span style="color: #FF0000;">本地加载</span>
+		&ltbutton&gt你看我是什么&lt/button&gt
+		&ltul&gt
+				&ltli&gtipad1&lt/li&gt
+				&ltli&gtipad2&lt/li&gt
+				&ltli&gtipad3&lt/li&gt
+				&ltli&gtipad4&lt/li&gt
+			&lt/ul&gt
+		
+		&ltscript type="text/javascript"&gt
+			$(function(){
+				$("button").click(function(){
+					$.ajax({
+						type:"GET",
+						url:"css/new_file.xml",
+						data:"",
+						dataType:"text",
+						success:function(msg){
+							console.log("成功"+msg);
+							$("ul").html(msg);
+						},error:function(error){
+							console.log("错误"+ error);
+						}
+					});
+				});
+			});
+		&lt/script&gt
+		</pre>	
+		
+		
+		<pre>  <span style="color: #FF0000;">数据加载</span>
+		&ltdiv id="div"&gt
+			
+		&lt/div&gt
+		&ltscript type="text/javascript"&gt
+		var str = "&lttable border='1' style='width: 1000px;'&gt";
+		var _data = {};
+		_data.pageNum = 1;
+		_data.pageSize = 20;
+		$.ajax({
+			type:"GET",
+			url:"http://www.hemijiaoyu.com/service/searchApply",
+			dataType:"JSON",
+			data:_data,
+			success:function(msg){
+				var arr = msg.list;
+				for (var i =0; i &ltarr.length; i++) {
+					str += "&lttr&gt";
+					var obj = arr[i];
+					for (var j in obj) {
+						if(j !="homeTel"){
+							str +="&lttd&gt" +obj[j]+"&lt/td&gt";
+						}
+					} 
+					str += "&lt/tr&gt";
+				}
+				str +="&lt/table&gt";  
+				$("#div").html(str);
+				},error:function(error){
+				  console.log("错误"+ error);
+			}
+		});
+		&lt/script&gt
+		</pre>
+	</body>
+</html>

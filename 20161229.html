@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<h2>数据传输</h2>
+		var _data = {}; 
+					_data.pageNum = 1;
+					_data.pageSize = 20;
+					_data.name = $("#name").val();
+					_data.sex = st1;
+					_data.birthday = "";
+					_data.mobile = $("#mobile").val();       获取每个输入框的值
+					_data.political = st2; 
+					_data.qq = $("#qq").val();
+					_data.college = $("#college").val();
+					_data.faculty = $("#system").val();
+					_data.major = $("#major").val();
+					_data.fatherName = $("#fn").val();
+					_data.fatherMobile = $("#fp").val();
+					_data.matherName = $("#mn").val();
+					_data.matherMobile = $("#mp").val();
+					_data.homeAddress = $("#jtzz").val();
+					_data.source = "";
+					_data.majorMemo = $("#nl").val();
+					_data.selfMemo = $("#zw").val()
+					
+					
+					 $.ajax({
+                  	    url:'http://www.hemijiaoyu.com/service/addApply',
+						type:'POST',
+						dataType:'text',
+						data: _data,
+					success:function(msg){
+						console.log("成功"+msg)
+					},error:function(error){
+						console.log("失败"+Error)
+					}
+	</body>
+</html>

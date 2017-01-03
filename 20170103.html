@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<h2>jQuery小栗子   动画</h2>
+		<h4>联动</h4>
+		<pre>
+			<span>原理：当鼠标移入的时候顶部出现红条，指当前在这个位置，下面的图片跟着切换到移入的框</span>
+			$(function(){
+         		$(".tab li").mouseenter(function(){     <span style="color: darkorange;">//当鼠标移入的时候</span>
+         			$(this).addClass("active").siblings().removeClass("active");   <span style="color: darkorange;">//siblings() 获得匹配集合中每个元素的同胞，通过选择器进行筛选是可选的</span>
+         			<span style="color: darkorange;">//removeClass移除，它的样式</span>
+         			var idx = $(this).index();  <span style="color: darkorange;">//index 方法返回指定元素相对于其他指定元素的 index 位置.</span>
+         			$(".main").eq(idx).addClass("selected").siblings(".main").removeClass("selected");
+         			<span style="color: darkorange;">//eq() 选择index()带有指定 的元素</span>
+         		})
+         	});     
+		</pre>
+		<h4>图片点击轮播</h4>
+		<pre>
+			<span>原理：当鼠标移入的时候是原来的位置变大，指当前在这个位置，上面的图片跟着切换到数字的位置</span>
+			$(function(){
+			var a = 1
+			$(".wrap >ol >li").mouseenter(function(){
+				$(this).addClass("active").siblings().removeClass("active")
+				a++;
+				var idx = $(this).index()
+				$(".wrap >ul >li").eq(idx).css({
+					"left":650,
+					"z-index":a     <span style="color: darkorange;">//调高层级，移到谁就谁显示</span>
+				}).animate({        <span style="color: darkorange;">//animate自定义动画</span>
+					"left":0
+				},300)
+			})
+		});
+		</pre>
+		<h4>图片滚动</h4>
+		<pre>
+			<span>原理：当鼠标移入的时候，指当前在这个位置，中间的图片跟着切换到指定的图片</span>
+			   $(function(){
+		            $("#left li").mouseenter(function(){
+			        var idx = $(this).index();
+			        $("#center li").eq(idx).show().siblings("li").hide();
+		});
+	}); 
+		</pre>
+		
+		<h4>相对浏览器</h4>
+		<pre>
+			<span>原理：图片定位，当鼠标滚动的时候，图片跟着跑，但是位置不变</span>
+			   $(function() {
+				$(window).scroll(function() {   <span style="color: darkorange;">//scroll 适用于所有可滚动的元素和 window对象（浏览器窗口）</span>
+					var tp = $(document).scrollTop();
+					/*console.log(tp);*/
+					$("#al img").stop().animate({
+						"top": tp
+					}, 500)
+				})
+
+			});
+		</pre>
+</body>
+</html>
